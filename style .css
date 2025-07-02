@@ -1,71 +1,50 @@
 body {
   font-family: Arial, sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
   margin: 0;
-  padding: 0;
-  background-color: #f2f2f2;
+  background: #f2f2f2;
 }
 
 header {
-  background-color: #333;
+  background: #333;
   color: #fff;
-  padding: 20px;
   text-align: center;
+  padding: clamp(1rem, 3vw, 2rem);
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: clamp(1rem, 5vw, 2rem);
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.bst {
-  background-color: #fff;
+.list-card {
+  background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  width: 300px;
+  padding: 1rem;
 }
 
-.bst h2 {
-  margin-top: 0;
-  color: #333;
-}
-
-.bst form {
+.list-card .card-body {
   display: flex;
   flex-direction: column;
-}
-
-.bst input {
-  margin-bottom: 10px;
-  padding: 5px;
-}
-
-.bst button {
-  background-color: #333;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  padding: 8px 16px;
-}
-
-.bst button:hover {
-  background-color: #555;
+  gap: 0.5rem;
 }
 
 #sortedList {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 #sortedList li {
-  margin-bottom: 10px;
-  padding: 5px;
-  background-color: #eee;
-  color: #333;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
   border-radius: 3px;
+  padding: 0.5rem;
 }
 
 @media screen and (max-width: 480px) {

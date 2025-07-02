@@ -13,13 +13,11 @@ class BinarySearchTree {
 
   insert(value) {
     const newNode = new TreeNode(value);
-
     if (this.root === null) {
       this.root = newNode;
     } else {
       this.insertNode(this.root, newNode);
     }
-
     this.displaySortedNumbers();
   }
 
@@ -64,11 +62,12 @@ class BinarySearchTree {
   }
 
   displaySortedNumbers() {
-    const sortedList = document.getElementById('sortedList');
-    sortedList.innerHTML = '';
+    const sortedList = document.getElementById("sortedList");
+    sortedList.innerHTML = "";
 
     this.inOrderTraversal(this.root, (node) => {
-      const listItem = document.createElement('li');
+      const listItem = document.createElement("li");
+      listItem.className = "list-group-item"; // Bootstrap style
       listItem.textContent = node.value;
       sortedList.appendChild(listItem);
     });
@@ -77,26 +76,24 @@ class BinarySearchTree {
 
 const bst = new BinarySearchTree();
 
-document.getElementById('insertForm').addEventListener('submit', (e) => {
+document.getElementById("insertForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  const value = parseInt(document.getElementById('insertInput').value);
-
+  const value = parseInt(document.getElementById("insertInput").value);
   if (!isNaN(value)) {
     bst.insert(value);
-    document.getElementById('insertInput').value = '';
+    document.getElementById("insertInput").value = "";
   }
 });
 
 function searchNumber() {
-  const value = parseInt(document.getElementById('searchInput').value);
-
+  const value = parseInt(document.getElementById("searchInput").value);
   if (!isNaN(value)) {
     const node = bst.search(value);
     if (node !== null) {
-      alert(`Number ${value} found in the BST.`);
+      alert(`✅ Number ${value} found in the BST.`);
     } else {
-      alert(`Number ${value} not found in the BST.`);
+      alert(`❌ Number ${value} not found in the BST.`);
     }
-    document.getElementById('searchInput').value = '';
+    document.getElementById("searchInput").value = "";
   }
 }
